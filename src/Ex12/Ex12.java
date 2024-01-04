@@ -1,3 +1,5 @@
+// Author: Hadar Nir
+
 package Ex12;
 
 public class Ex12 {
@@ -20,6 +22,15 @@ public class Ex12 {
 
     /**
      * Recursive helper method to find the length of the longest sequence of identical digits.
+     *
+     * This method uses recursion to iterate through the digits of the integer represented as a string,
+     * tracking the length of the current sequence of identical digits and updating the maximum length found so far.
+     *
+     * Time Complexity: O(n), where n is the length of the input string.
+     *   - The method iterates through the characters of the string once.
+     *
+     * Space Complexity: O(n), where n is the length of the input string.
+     *   - The recursion depth is proportional to the length of the input string.
      *
      * @param numStr The string representation of the positive integer.
      * @param index  The current index in the string.
@@ -55,11 +66,18 @@ public class Ex12 {
      * @return The subnumber where each digit is divisible by the given digit.
      */
     public static int subNumber(int num, int digit) {
+        // Start the recursion with initial index 1
         return findSubNumber(num, digit, 1);
     }
 
     /**
      * Recursive helper method to find and construct the subnumber where each digit is divisible by a given digit.
+     *
+     * Time Complexity: O(n), where n is the number of digits in the remaining positive integer.
+     *   - The method processes each digit once during each recursive call.
+     *
+     * Space Complexity: O(n), where n is the number of digits in the remaining positive integer.
+     *   - The recursion depth is proportional to the number of digits in the remaining positive integer.
      *
      * @param num    The remaining positive integer to process.
      * @param digit  The digit used as a divisor to filter the subnumber.
@@ -71,16 +89,16 @@ public class Ex12 {
             // Base case: reached the end of the number
             return 0;
         } else {
-            if ((num % 10) % digit == 0) {
+            int currentDigit = num % 10;
+            if (currentDigit % digit == 0) {
                 // If the current digit is divisible by the given digit, include it in the subnumber
-                return ((num % 10) * index) + findSubNumber(num / 10, digit, index * 10);
+                return currentDigit * index + findSubNumber(num / 10, digit, index * 10);
             } else {
                 // If the current digit is not divisible, skip it
                 return findSubNumber(num / 10, digit, index);
             }
         }
     }
-
 
     /**
      * Determines if a given integer is a special number based on a specific deletion pattern.
@@ -94,11 +112,17 @@ public class Ex12 {
      * @return true if the number is a special number, false otherwise.
      */
     public static boolean isSpecial(int n) {
+        // Start the recursion with initial jump value 2 and numbersBeforeN set to n-1
         return isSpecialHelper(2, n - 1);
     }
 
     /**
      * Recursive helper method to determine if a given integer is a special number based on a specific deletion pattern.
+     *
+     * Time Complexity: O(n), where n is the count of numbers before the given integer in the sequence.
+     *   - The method iteratively processes decreasing numbersBeforeN in each recursive call.
+     *
+     * Space Complexity: O(1).
      *
      * @param jump            The current jump value in the deletion pattern.
      * @param numbersBeforeN The count of numbers before the given integer in the sequence.
@@ -109,8 +133,8 @@ public class Ex12 {
             // Base case: jump exceeds the count of numbers before N
             return true;
         } else {
+            // If (numbersBeforeN + 1) is divisible by the jump, the number is not special
             if ((numbersBeforeN + 1) % jump == 0) {
-                // If (numbersBeforeN + 1) is divisible by the jump, the number is not special
                 return false;
             }
             // Recursively call the helper method with updated parameters
