@@ -2,12 +2,6 @@
 
 Welcome to my personal "Java Algorithms Learning" project! This repository is my dedicated space for exploring and mastering Java algorithms. If you're also on a journey of learning Java or are curious about algorithmic implementations, feel free to explore this collection, which documents my progress in understanding various algorithms.
 
-## Table of Contents
-
-1. [Introduction](#introduction)
-2. [How to Use](#how-to-use)
-3. [License](#license)
-
 ## Introduction
 
 This project represents my hands-on approach to studying Java algorithms. It's a dynamic space where I experiment with different algorithmic concepts, implement classic algorithms, and refine my problem-solving skills using Java.
