@@ -50,20 +50,36 @@ public class Ex2023 {
     }
 
     /**
-     * Main method for testing the FriendCircleCounter class.
+     * Finds a peak element in an array. A peak element is an element that is greater
+     * than or equal to its neighbors.
      *
-     * @param args Command line arguments (not used in this example).
+     * @param arr The input array in which the peak element needs to be found.
+     * @return The peak element if found, otherwise -1.
      */
-    public static void main(String[] args) {
-        // Example usage of the friend3 method
-        int[][] matrix = {
-                {0, 0, 0, 0},
-                {0, 0, 1, 1},
-                {0, 1, 0, 1},
-                {0, 1, 1, 0}
-        };
+    public static int findPeak(int[] arr) {
+        // Check if the first element is a peak.
+        if (arr[0] > arr[1]) {
+            return arr[0];
+        }
 
-        int result = friend3(matrix);
-        System.out.println("Number of circles: " + result);
+        // Check if the last element is a peak.
+        if (arr[arr.length - 1] > arr[arr.length - 2]) {
+            return arr[arr.length - 1];
+        }
+
+        // Iterate through the array to find a peak element.
+        for (int i = 1; i < arr.length - 1; i++) {
+            if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
+                return arr[i];
+            }
+        }
+
+        // No peak element found.
+        return -1;
+    }
+
+
+    public static void main(String[] args) {
+
     }
 }
