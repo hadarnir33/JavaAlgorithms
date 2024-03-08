@@ -15,6 +15,7 @@ public class Ex2023 {
      * @return The count of friend circles found.
      */
     private static int friend3Helper(int[][] mat, int i, int j, int k) {
+        int isCircle = 0;
         // Check boundaries to avoid IndexOutOfBoundsException
         if (i < mat.length - 2) {
             // Check if j exceeds the valid range
@@ -28,9 +29,10 @@ public class Ex2023 {
             // Check if friends at indices i, j, and k form a circle
             if (mat[i][j] == 1 && mat[i][k] == 1 && mat[j][k] == 1) {
                 System.out.println(i + " " + j + " " + k);
-                // Recursively check for more circles and increment the count
-                return friend3Helper(mat, i, j, k + 1) + 1;
+                isCircle = 1;
             }
+            // Recursively check for more circles and increment the count
+            return friend3Helper(mat, i, j, k + 1) + isCircle;
         }
         return 0;
     }
@@ -55,10 +57,10 @@ public class Ex2023 {
     public static void main(String[] args) {
         // Example usage of the friend3 method
         int[][] matrix = {
-                {0, 1, 1, 1},
-                {1, 0, 1, 1},
-                {1, 1, 0, 1},
-                {1, 1, 1, 0}
+                {0, 0, 0, 0},
+                {0, 0, 1, 1},
+                {0, 1, 0, 1},
+                {0, 1, 1, 0}
         };
 
         int result = friend3(matrix);
