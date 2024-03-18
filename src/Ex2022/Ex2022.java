@@ -19,16 +19,14 @@ public class Ex2022 {
             return 1;
         }
         // Base case: maximum operations reached
-        else if (maxOp == 0) {
+        else if (maxOp == 0)
             return 0;
-        } else {
-            // Recursive calls for addition, subtraction, multiplication, and division
-            int sumResult = calculateExpression(num, result, maxOp - 1, expression + "+" + num, currentResult + num);
-            int differenceResult = calculateExpression(num, result, maxOp - 1, expression + "-" + num, currentResult - num);
-            int mulResult = calculateExpression(num, result, maxOp - 1, expression + "*" + num, currentResult * num);
-            int divisionResult = calculateExpression(num, result, maxOp - 1, expression + "/" + num, currentResult / num);
-            return sumResult + differenceResult + mulResult + divisionResult;
-        }
+        // Recursive calls for addition, subtraction, multiplication, and division
+        int sumResult = calculateExpression(num, result, maxOp - 1, expression + "+" + num, currentResult + num);
+        int differenceResult = calculateExpression(num, result, maxOp - 1, expression + "-" + num, currentResult - num);
+        int mulResult = calculateExpression(num, result, maxOp - 1, expression + "*" + num, currentResult * num);
+        int divisionResult = calculateExpression(num, result, maxOp - 1, expression + "/" + num, currentResult / num);
+        return sumResult + differenceResult + mulResult + divisionResult;
     }
 
     /**
