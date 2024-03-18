@@ -18,8 +18,8 @@ public class Ex2022 {
             System.out.println(expression + "=" + result);
             return 1;
         }
-        // Base case: current result exceeds the target result or maximum operations reached
-        else if (currentResult > result || maxOp == 0) {
+        // Base case: maximum operations reached
+        else if (maxOp == 0) {
             return 0;
         } else {
             // Recursive calls for addition, subtraction, multiplication, and division
@@ -44,6 +44,6 @@ public class Ex2022 {
     }
 
     public static void main(String[] args) {
-
+        System.out.println(calculateExpression(3, 36, 4));
     }
 }
