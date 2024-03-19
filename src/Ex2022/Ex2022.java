@@ -47,7 +47,7 @@ public class Ex2022 {
      * @param index The index to start searching from.
      * @return The index of the first positive number, or -1 if not found.
      */
-    public static int findPositiveNumberFromRight(int[] a, int index) {
+    public static int findPositiveIndexRight(int[] a, int index) {
         for (int i = index; i < a.length; i++) {
             if (a[i] > 0) {
                 return i;
@@ -62,7 +62,7 @@ public class Ex2022 {
      * @param index The index to start searching from.
      * @return The index of the first positive number, or -1 if not found.
      */
-    public static int findPositiveNumberFromLeft(int[] a, int index) {
+    public static int findPositiveIndexLeft(int[] a, int index) {
         while (index >= 0) {
             if (a[index] > 0) {
                 return index;
@@ -88,7 +88,7 @@ public class Ex2022 {
                 return mid;
             }
             if (a[mid] == 0) {
-                positiveFromRight = findPositiveNumberFromRight(a, mid + 1);
+                positiveFromRight = findPositiveIndexRight(a, mid + 1);
                 if(positiveFromRight != -1){
                     if (a[positiveFromRight] == num) {
                         return positiveFromRight;
@@ -97,7 +97,7 @@ public class Ex2022 {
                         low = positiveFromRight;
                     }
                 }
-                positiveFromLeft = findPositiveNumberFromLeft(a, mid - 1);
+                positiveFromLeft = findPositiveIndexLeft(a, mid - 1);
                 if(positiveFromLeft != -1 && low != positiveFromRight){
                     if (a[positiveFromLeft] == num) {
                         return positiveFromLeft;
